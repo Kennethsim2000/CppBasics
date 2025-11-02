@@ -27,6 +27,12 @@ public:
     string &getTicketSymbol();
 
     string &getExchange();
+
+    string &getCompanyName();
+
+    double &getMarketCap();
+
+    string toString();
 };
 
 #endif
