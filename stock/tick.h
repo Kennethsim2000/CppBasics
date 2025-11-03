@@ -20,7 +20,7 @@ public:
 
     void setAskPrice(double askPrice);
 
-    void setDateTime(chrono::time_point<chrono::system_clock> dateTime);
+    void setDateTime(chrono::time_point<chrono::system_clock> &dateTime);
 
     double &getBidPrice();
 

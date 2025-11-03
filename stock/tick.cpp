@@ -18,7 +18,7 @@ void Tick::setAskPrice(double askPrice)
     askPrice_ = askPrice;
 }
 
-void Tick::setDateTime(chrono::time_point<chrono::system_clock> dateTime)
+void Tick::setDateTime(chrono::time_point<chrono::system_clock> &dateTime)
 {
     dateTime_ = dateTime;
 }
