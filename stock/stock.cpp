@@ -4,18 +4,24 @@ Stock::Stock() {}
 
 Stock::Stock(string ticketSymbol, string exchange, string companyName, double marketCap) : ticketSymbol_(ticketSymbol), exchange_(exchange), companyName_(companyName), marketCap_(marketCap) {};
 
-void Stock::setTicketSymbol(string ticketSymbol)
+void Stock::setTicketSymbol(const string &ticketSymbol)
 {
+    if (ticketSymbol.empty())
+        throw std::invalid_argument("Ticker symbol cannot be empty");
     ticketSymbol_ = ticketSymbol;
 }
 
-void Stock::setExchange(string exchange)
+void Stock::setExchange(const string &exchange)
 {
+    if (exchange.empty())
+        throw std::invalid_argument("Ticker symbol cannot be empty");
     exchange_ = exchange;
 }
 
-void Stock::setCompanyName(string companyName)
+void Stock::setCompanyName(const string &companyName)
 {
+    if (companyName.empty())
+        throw std::invalid_argument("Ticker symbol cannot be empty");
     companyName_ = companyName;
 }
 
