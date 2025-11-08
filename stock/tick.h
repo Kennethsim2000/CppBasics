@@ -17,15 +17,9 @@ public:
     Tick();
     Tick(double bidPrice, double askPrice, chrono::time_point<chrono::system_clock> dateTime);
 
-    void setBidPrice(double bidPrice);
-
-    void setAskPrice(double askPrice);
-
-    void setDateTime(chrono::time_point<chrono::system_clock> &dateTime);
-
     double &getBidPrice();
 
-    double &setAskPrice();
+    double &getAskPrice();
 
     chrono::time_point<chrono::system_clock> &getDateTime();
 

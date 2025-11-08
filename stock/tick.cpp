@@ -15,27 +15,12 @@ Tick::Tick()
 
 Tick::Tick(double bidPrice, double askPrice, chrono::time_point<chrono::system_clock> dateTime) : bidPrice_(bidPrice), askPrice_(askPrice), dateTime_(dateTime) {}
 
-void Tick::setBidPrice(double bidPrice)
-{
-    bidPrice_ = bidPrice;
-}
-
-void Tick::setAskPrice(double askPrice)
-{
-    askPrice_ = askPrice;
-}
-
-void Tick::setDateTime(chrono::time_point<chrono::system_clock> &dateTime)
-{
-    dateTime_ = dateTime;
-}
-
 double &Tick::getBidPrice()
 {
     return bidPrice_;
 }
 
-double &Tick::setAskPrice()
+double &Tick::getAskPrice()
 {
     return askPrice_;
 }
@@ -61,7 +46,7 @@ std::string Tick::toString()
 
 void ammendTick(Tick &tick, chrono::time_point<chrono::system_clock> &dateTime, double bidPrice, double askPrice)
 {
-    tick.setAskPrice(askPrice);
-    tick.setBidPrice(bidPrice);
-    tick.setDateTime(dateTime);
+    tick.askPrice_ = askPrice;
+    tick.bidPrice_ = bidPrice;
+    tick.dateTime_ = dateTime;
 }
