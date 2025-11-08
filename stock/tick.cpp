@@ -4,7 +4,14 @@
 #include <sstream>
 #include <iomanip>
 
-Tick::Tick() {}
+Tick::~Tick()
+{
+    std::cout << "Destructor of tick is called" << std::endl;
+}
+Tick::Tick()
+{
+    std::cout << "Constructor of tick is called" << std::endl;
+}
 
 Tick::Tick(double bidPrice, double askPrice, chrono::time_point<chrono::system_clock> dateTime) : bidPrice_(bidPrice), askPrice_(askPrice), dateTime_(dateTime) {}
 
@@ -50,4 +57,11 @@ std::string Tick::toString()
     return "AskPrice: " + std::to_string(askPrice_) +
            ", BidPrice: " + std::to_string(bidPrice_) +
            ", DateTime: " + oss.str();
+}
+
+void ammendTick(Tick &tick, chrono::time_point<chrono::system_clock> &dateTime, double bidPrice, double askPrice)
+{
+    tick.setAskPrice(askPrice);
+    tick.setBidPrice(bidPrice);
+    tick.setDateTime(dateTime);
 }

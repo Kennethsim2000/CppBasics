@@ -16,12 +16,6 @@ public:
     Stock();
     Stock(string ticketSymbol, string exchange, string companyName, double marketCap);
 
-    void setTicketSymbol(const string &ticketSymbol);
-
-    void setExchange(const string &exchange);
-
-    void setCompanyName(const string &companyName);
-
     void setMarketCap(double marketCap);
 
     string &getTicketSymbol();
@@ -33,6 +27,8 @@ public:
     double &getMarketCap();
 
     string toString();
+
+    ~Stock();
 };
 
 #endif

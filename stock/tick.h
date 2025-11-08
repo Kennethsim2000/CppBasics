@@ -13,6 +13,7 @@ class Tick
     chrono::time_point<chrono::system_clock> dateTime_;
 
 public:
+    ~Tick();
     Tick();
     Tick(double bidPrice, double askPrice, chrono::time_point<chrono::system_clock> dateTime);
 
@@ -29,4 +30,6 @@ public:
     chrono::time_point<chrono::system_clock> &getDateTime();
 
     string toString();
+
+    friend void ammendTick(Tick &obj, chrono::time_point<chrono::system_clock> &dateTime, double bidPrice, double askPrice);
 };
