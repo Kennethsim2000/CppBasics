@@ -13,6 +13,9 @@ class Stock
     double marketCap_;
 
 public:
+    Stock(Stock &&other) noexcept; // move constructor
+
+    Stock(const Stock &stock); // copy constructor
     Stock();
     Stock(string ticketSymbol, string exchange, string companyName, double marketCap);
 
