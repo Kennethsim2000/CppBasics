@@ -2,10 +2,11 @@
 #include "tick.h"
 #include <list>
 
-PriceHistory::PriceHistory(Stock &stock) : stock_(stock)
+PriceHistory::PriceHistory(Stock &&stock) : stock_(std::move(stock))
 {
 }
 
+// this method will copy the tick object to be returned back
 std::list<Tick> PriceHistory::returnHistory(chrono::time_point<chrono::system_clock> day)
 {
     std::list<Tick> res;
@@ -35,7 +36,7 @@ std::list<Tick> PriceHistory::returnHistory(chrono::time_point<chrono::system_cl
 
 void PriceHistory::addTick(Tick &tick)
 {
-    tickVec_.push_back(tick);
+    tickVec_.push_back(std::move(tick));
 }
 
 // find the one tick that is right after startDay
@@ -72,7 +73,6 @@ std::pair<double, double> PriceHistory::openingPrice(chrono::time_point<chrono::
         }
     }
     std::pair res{earliestTick->getBidPrice(), earliestTick->getAskPrice()};
-    delete earliestTick;
     return res;
 }
 
@@ -109,6 +109,5 @@ std::pair<double, double> PriceHistory::closingPrice(chrono::time_point<chrono::
         }
     }
     std::pair res{latestTick->getBidPrice(), latestTick->getAskPrice()};
-    delete latestTick;
     return res;
 }

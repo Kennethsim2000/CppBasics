@@ -6,7 +6,12 @@
 
 Tick::~Tick()
 {
-    std::cout << "Destructor of tick is called" << std::endl;
+    std::time_t timeT = std::chrono::system_clock::to_time_t(dateTime_);
+    std::tm tm = *std::localtime(&timeT);
+
+    std::ostringstream oss;
+    oss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
+    std::cout << "Destructor of tick is called for " << oss.str() << std::endl;
 }
 Tick::Tick()
 {

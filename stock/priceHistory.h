@@ -16,7 +16,7 @@ class PriceHistory
     std::vector<Tick> tickVec_;
 
 public:
-    PriceHistory(Stock &stock);
+    PriceHistory(Stock &&stock);
 
     std::list<Tick> returnHistory(chrono::time_point<chrono::system_clock> day);
 
