@@ -13,6 +13,9 @@ class Tick
     chrono::time_point<chrono::system_clock> dateTime_;
 
 public:
+    Tick(Tick &&other) noexcept; // move constructor
+
+    Tick(const Tick &tick); // copy constructor
     ~Tick();
     Tick();
     Tick(double bidPrice, double askPrice, chrono::time_point<chrono::system_clock> dateTime);
