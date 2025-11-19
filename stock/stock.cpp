@@ -2,7 +2,7 @@
 
 Stock::Stock(const Stock &stock)
 {
-    cout << "Copy constructor called for stock" << this->companyName_ << std::endl;
+    cout << "Copy constructor called for stock " << this->companyName_ << std::endl;
 }
 
 Stock::~Stock()
@@ -16,7 +16,7 @@ Stock::Stock(Stock &&other) noexcept
       companyName_(std::move(other.companyName_)),
       marketCap_(other.marketCap_) // for primitive types, just copy the value
 {
-    std::cout << "Move constructor called for " << companyName_ << std::endl;
+    std::cout << "Move constructor called for stock" << companyName_ << std::endl;
     // Reset the moved-from object to a safe state
     other.marketCap_ = 0.0;
 }

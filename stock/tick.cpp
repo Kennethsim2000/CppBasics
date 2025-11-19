@@ -11,7 +11,7 @@ Tick::Tick(const Tick &tick)
 
     std::ostringstream oss;
     oss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
-    cout << "Copy constructor called for tick" << oss.str() << std::endl;
+    cout << "Copy constructor called for tick " << oss.str() << std::endl;
 }
 
 Tick::Tick(Tick &&other) noexcept
@@ -24,7 +24,7 @@ Tick::Tick(Tick &&other) noexcept
 
     std::ostringstream oss;
     oss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
-    std::cout << "Move constructor called for " << oss.str() << std::endl;
+    std::cout << "Move constructor called for tick " << oss.str() << std::endl;
     // Reset the moved-from object to a safe state
     other.dateTime_ = std::chrono::system_clock::time_point{};
     other.bidPrice_ = 0.0;

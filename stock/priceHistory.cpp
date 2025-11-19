@@ -4,6 +4,7 @@
 
 PriceHistory::PriceHistory(Stock &&stock) : stock_(std::move(stock))
 {
+    tickVec_.reserve(100); // previously was getting lots of extra move constructors due to vector constantly resizing
 }
 
 // this method will copy the tick object to be returned back

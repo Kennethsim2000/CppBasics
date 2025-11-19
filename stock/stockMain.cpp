@@ -32,10 +32,12 @@ int main()
 
     Stock apple("AAPL", "NASDAQ", "Apple Inc.", 528.11);
     PriceHistory price_history(std::move(apple));
+    cout << "Before adding to price_history" << endl;
     price_history.addTick(tick1);
     price_history.addTick(tick2);
     price_history.addTick(tick3);
     price_history.addTick(tick4);
+    cout << "After adding to price_history" << endl;
     auto closing_pair = price_history.closingPrice(t3);
     cout << "Closing bidprice is " << closing_pair.first << " and askPrice is " << closing_pair.second << endl;
     auto opening_pair = price_history.openingPrice(t3);
@@ -52,3 +54,5 @@ int main()
     // cout << strTick << endl;
     // delete ms;
 }
+
+// After moving, we have a valid object(for tick it is defaulted to 1970-01-01 07:30:00), which will be cleaned up when the destructor is called
