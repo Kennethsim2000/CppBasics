@@ -1,2 +1,16 @@
-*.out
+#ignore vscode
 *.vscode
+
+# Ignore compiled binaries
+*.out
+*.exe
+
+# Ignore macOS debug symbol folders (created when using -g)
+*.dSYM/
+
+# Ignore object files
+*.o
+*.obj
+
+# Optional: ignore core dumps
+core*
