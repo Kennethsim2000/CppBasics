@@ -44,7 +44,7 @@ class Car
     Engine engine;
 
 public:
-    Car() : wheels{Wheel(), Wheel(), Wheel(), Wheel()}, chassis(), engine()
+    Car() : chassis(), wheels{Wheel(), Wheel(), Wheel(), Wheel()}, engine()
     {
         std::cout << "Car constructed\n";
     };
@@ -70,6 +70,18 @@ public:
     }
 };
 
+constexpr double cmToInches(double centimeters)
+{
+    const double CM_PER_INCH = 2.54; // Define the conversion factor
+    return centimeters / CM_PER_INCH;
+}
+
+constexpr double inchesToCm(double inches)
+{
+    const double CM_PER_INCH = 2.54; // Define the conversion factor
+    return inches * CM_PER_INCH;
+}
+
 int main()
 {
     Car car;
@@ -77,4 +89,8 @@ int main()
     car.addRack(&rack);
     Wheel newWheel;
     car.replaceWheel(0, newWheel);
+    std::cout << "ten inches to cm is " << inchesToCm(10) << std::endl;
+    std::cout << "ten cm to inches is " << cmToInches(10) << std::endl;
+    static_assert(inchesToCm(10) == 25.4);
+    static_assert(cmToInches(2.54) == 1.0);
 }
